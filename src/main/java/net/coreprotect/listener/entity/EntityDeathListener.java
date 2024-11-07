@@ -6,11 +6,8 @@ import java.util.List;
 import java.util.Locale;
 import java.util.Map;
 
-import org.bukkit.Bukkit;
-import org.bukkit.Color;
-import org.bukkit.Location;
-import org.bukkit.Material;
-import org.bukkit.World;
+import com.google.common.collect.Lists;
+import org.bukkit.*;
 import org.bukkit.attribute.Attributable;
 import org.bukkit.attribute.Attribute;
 import org.bukkit.attribute.AttributeInstance;
@@ -284,7 +281,7 @@ public final class EntityDeathListener extends Queue implements Listener {
             if (entity instanceof Attributable) {
                 Attributable attributable = entity;
 
-                for (Attribute attribute : Attribute.values()) {
+                for (Attribute attribute : Lists.newArrayList(Registry.ATTRIBUTE)) {
                     AttributeInstance attributeInstance = attributable.getAttribute(attribute);
                     if (attributeInstance != null) {
                         List<Object> attributeData = new ArrayList<>();
